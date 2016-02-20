@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ProgrammingArchive</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-	<% flash.each do |name, msg| %>
-		<%= content_tag(:div, msg, class: 'alert alert-#{name}') %>
-	<% end %>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Programming Archive</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header class='navbar navbar-default' role='navigation'>
+      <div class="navbar-inner">
+        <div class="container">
+          <div id="logo" class="navbar-brand"><% link_to 'Programming Archive', 'localhost:3000' %></div>
+          <nav class="collapse navbar-collapse navbar-ex1-collapse">
+            <% if user_signed_in? %>
+              <ul class='nav navbar-nav navbar-right'>
+                <li><%= link_to 'Account', edit_user_registration_path %></li>
+                <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+              </ul>
+            <% else %>
+              <ul class='nav navbar-nav pull-right'>
+                <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+                <li><%= link_to 'Sign In', new_user_session_path %></li>
+              </ul>
+            <% end %>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: 'alert alert-#{name}') %>
+      <% end %>
+      <div id="container" class="col-md-9">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>
