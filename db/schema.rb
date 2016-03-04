@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219185037) do
+ActiveRecord::Schema.define(version: 20160220163111) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "name",              limit: 255
     t.string   "slug",              limit: 255
-    t.integer  "submissions",       limit: 4
+    t.string   "submissions",       limit: 255
     t.string   "accuracy",          limit: 255
     t.string   "url",               limit: 255
     t.string   "platform",          limit: 255

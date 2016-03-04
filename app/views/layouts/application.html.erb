@@ -10,10 +10,10 @@
     <header class='navbar navbar-default' role='navigation'>
       <div class="navbar-inner">
         <div class="container">
-          <div id="logo" class="navbar-brand"><% link_to 'Programming Archive', 'localhost:3000' %></div>
+          <div id="logo" class="navbar-brand"><%= link_to 'Programming Archive', '/' %></div>
           <nav class="collapse navbar-collapse navbar-ex1-collapse">
             <% if user_signed_in? %>
-              <ul class='nav navbar-nav navbar-right'>
+              <ul class='nav navbar-nav pull-right'>
                 <li><%= link_to 'Account', edit_user_registration_path %></li>
                 <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
               </ul>
@@ -27,11 +27,11 @@
         </div>
       </div>
     </header>
-    <div id="main" class="container">
+    <div id="main_content" class="container">
       <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: 'alert alert-#{name}') %>
       <% end %>
-      <div id="container" class="col-md-9">
+      <div id="content" class="col-md-9">
         <%= yield %>
       </div>
     </div>
