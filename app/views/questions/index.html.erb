@@ -1,1 +1,172 @@
-<h1>This is the index.html.erb file</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Welcome to MSS</title>
+  
+ 
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="home-warpper"> 
+    <!-- Fixed navbar -->
+    
+      <!--nav ends here-->  
+      <div class="nav-bg">
+        <div class="container-fluid">
+          <div class="header-right">
+            <ul class="top-link">
+             <li> <a href="#menu-toggle" id="menu-toggle"><%=image_tag("toggle-icon.png")%></a></li>
+           </ul>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div class="slider-container-home">
+  <div class="container">
+
+
+
+
+    
+
+  <div class="jumbotron">
+    <h1>CODING LOVER?ITS FOR YOU!! <span>EAT.CODE.SLEEP.REPEAT</span></h1>
+    <form action="/journey/webcrawlshow">
+    <div class="row">
+    <select name="platform">
+      <option value="all">all</option>
+  <option value="codechef">codechef</option>
+  <option value="Spoj">spoj</option>
+  <option value="codeforces">codeforces</option>
+  <option value="hackerearth">hackerearth</option>
+</select>
+  
+    
+        <div class="col-lg-3 col-lg-offset-38">
+          <button type="submit" class="btn btn-danger">Find Your Match</button>    
+        </div>
+      </div></form>
+      <!-- Modal -->
+    </div>
+  </div>
+</div>
+<!-- midside sports picks  starts-->
+<div class="home-container">
+ <div class="home-banner">
+   <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-100">
+        <div class="col-md-25 col-sm-25">
+          <div class="img-box"><%=image_tag("logo (1).png")%>
+            <div class="img-box-heading"><h2>codechef</h2></div>
+          </div>
+        </div>
+        <div class="col-md-25 col-sm-25">
+          <div class="img-box"><%=image_tag("HE_cover.jpg")%><div class="img-box-heading"><h2 class="orange">hackerearth</h2></div></div>
+        </div>
+        <div class="col-md-25 col-sm-25">
+          <div class="img-box"><%=image_tag("spj.png")%><div class="img-box-heading"><h2 class="orange">spoj</h2></div></div>
+        </div>
+        <div class="col-md-25 col-sm-25">
+          <div class="img-box"><%=image_tag("cdfc.png")%><div class="img-box-heading"><h2 class="orange">codeforces</h2></div></div>
+        </div>
+      </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-100">
+          <div class="col-md-25 col-sm-25">
+            <div class="img-box"><%=image_tag("ds.png")%>
+              <div class="img-box-heading"><h2>data-structure</h2></div>
+            </div>
+          </div>
+          <div class="col-md-25 col-sm-25">
+            <div class="img-box"> <%=image_tag("dp.jpg")%><div class="img-box-heading"><h2 class="orange">dynamic programming</h2></div></div>
+          </div>
+          <div class="col-md-25 col-sm-25">
+            <div class="img-box"><%=image_tag("bit.png")%><div class="img-box-heading"><h2 class="orange">bit magic</h2></div></div>
+          </div>
+          <div class="col-md-25 col-sm-25">
+            <div class="img-box"><%=image_tag("algo.png")%><div class="img-box-heading"><h2 class="orange">algorithms</h2></div></div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+</div>
+</div>
+<!-- midside sports picks  ends-->
+
+
+
+<div class="bottom-bg">
+  <div class="container">
+      <!--<div class="home-heading"><span></span>
+        <h1 class="text-center text-uppercase">With a potential network of 23 Million + Users</h1>
+      </div>-->
+      <div class="home-section">
+        <div class="row">
+         
+        </div>
+      </div>   
+    </div>
+  </div>
+</div>
+</div>
+<footer>
+  
+  <div class="footer-link"> <a href="#">About Us</a> <a href="#">Help</a> <a href="#">Privacy Policy</a> <a href="#">Carees</a> <a href="#">Contact Us</a></div>
+  <div class="copyright">Your Feedback is important to us. Mail us at <a href="mailto:myselfiesport.com">feedback@myselfiesport.com</a> </div>
+  <div class="social-icons"> <a href="#" class="twitter"></a> <a href="#" class="facebook"></a> <a href="#" class="trigger"></a> <a href="#" class="gallery"></a> </div>
+</footer>
+<!-- /container -->
+
+
+<script>
+$( ".search-toggle" ).click(function() {
+  $( ".input-search" ).toggle( "slow" );
+});
+</script>
+<script>
+$("#menu-toggle").click(function(e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+});
+</script>
+
+<script>
+$(document).ready(function(){
+var header = $('.slider-container-home');
+
+var backgrounds = new Array(
+    'url("/assets/1.jpg.png")'
+  , 'url("/assets/2.jpg.jpg)'
+  , 'url("/assets/3.jpg.jpg")'
+  , 'url("/assets/4.jpg.jpg")'
+  , 'url("/assets/5.jpg.jpg")'
+  
+);
+
+var current = 0;
+
+function nextBackground() {
+    current++;
+    current = current % backgrounds.length;
+    header.css('background-image', backgrounds[current]);
+}
+setInterval(nextBackground, 3000);
+
+header.css('background-image', backgrounds[0]);
+});
+</script>
+</body>
+</html>

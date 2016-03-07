@@ -7,12 +7,12 @@
 
 <div class="btn-group pull-right">
   <%= link_to like_question_path(@question), method: :put, class: "btn btn-success btn-sm" do %>
-    <span class="glyphicon glyphicon-chevron-up"></span>
+    <span class="glyphicon glyphicon-plus-sign"></span>
     Upvote
     <%= @question.get_upvotes.size %>
   <% end %>
   <%= link_to dislike_question_path(@question), method: :put, class: "btn btn-warning btn-sm" do %>
-    <span class="glyphicon glyphicon-chevron-down">
+    <span class="glyphicon glyphicon-minus-sign"></span>
     Downvote
     <%= @question.get_downvotes.size %>
   <% end %>
@@ -30,5 +30,5 @@
     <%= f.text_area :body, class: "form-control" %>
   </div>
   <br>
-  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+  <%= f.submit "Add Comment", class: "btn btn-success" %>
 <% end %>
