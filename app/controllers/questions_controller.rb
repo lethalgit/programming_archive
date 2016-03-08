@@ -4,12 +4,7 @@ class QuestionsController < ApplicationController
 
   def list
     platform = params[:platform]
-    tag = params[:tag]
-    @questions = Question.all
-    @questions = @questions.where(:platform => platform)
-    for question in @questions
-      puts('tags', question.tags.split(',').map(&:to_s).length)
-    end
+    @questionList = Question.where(platform: platform);
   end
 
   def show

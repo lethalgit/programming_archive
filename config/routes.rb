@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => 'questions#index'
   resources :comments
   devise_for :users
   resources :questions do
@@ -8,8 +9,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-  get '/questions/:platform/:tag', :to => 'questions#list'
-  root :to => 'questions#index'
+  get '/questionList/:platform', to: 'questions#list'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
