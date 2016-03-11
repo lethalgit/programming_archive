@@ -11,6 +11,15 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def search
+    @name = params[:search]
+    @questions = Question.where(['name LIKE ?', '%'+@name+'%'])
+  end
+
+  def search_suggestions
+    render json: Question.terms_for(params[:term])
+  end
+
   def upvote
   	@question = Question.find(params[:id])
   	@question.upvote_by current_user

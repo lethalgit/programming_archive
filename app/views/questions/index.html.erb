@@ -243,7 +243,6 @@ $(document).ready(function(){
 $('#submit').click(function (e) {
   e.preventDefault();
   var platformSelected = document.getElementById('platform').value.trim().toLowerCase();
-  // console.log(platformSelected);
   var url = '/questionList/' + platformSelected;
   $.ajax({
     type: 'GET',

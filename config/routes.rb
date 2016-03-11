@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   get '/questionList/:platform', to: 'questions#list'
+  get '/questionSearch/:name', to: 'questions#search'
+  get '/search_suggestions', to: 'questions#search_suggestions'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,20 @@
+<div class="container">
+  <h3><b>Search results for - <%= @name %></b></h3>
+  <% @questions.each do |question| %>
+  <div class="link row clearfix">
+    <h2>
+      <%= link_to question.name, question %>
+    </h2>
+    <a class="btn btn-default btn-sm" href="<%= question.url %>">
+      Visit Question
+    </a>
+  </br>
+    <div class="btn-group">
+      Upvotes - 
+      <%= question.get_upvotes.size %>
+      Downvotes - 
+      <%= question.get_downvotes.size %>
+    </div>
+  </div>
+  <% end %>
+</div>
