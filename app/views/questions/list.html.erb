@@ -1,6 +1,6 @@
 <div class="container">
-  <h3><b><%= @questionList[0].platform %></b></h3>
-  <% @questionList.each do |question| %>
+  <h3><b><%= @question_list[0].platform %></b></h3>
+  <% @question_list.each do |question| %>
   <div class="link row clearfix">
     <h2>
       <%= link_to question.name, question %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-  get '/questionList/:platform', to: 'questions#list'
+  get '/questionList/:platforms/:tag/:accuracy/:submission', to: 'questions#list'
   get '/questionSearch/:name', to: 'questions#search'
   get '/search_suggestions', to: 'questions#search_suggestions'
   # The priority is based upon order of creation: first created -> highest priority.

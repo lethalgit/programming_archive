@@ -14,7 +14,7 @@
           <nav class="collapse navbar-collapse navbar-ex1-collapse">
             <% if user_signed_in? %>
               <ul class='nav navbar-nav pull-right my-navbar'>
-                <li>
+                <li>Search
                   <%= form_tag '/questionSearch/:name', :method => 'get' do %>
                   <%= text_field_tag :search, params[:search], :id => 'search' %>
                   <% end %>
@@ -24,7 +24,7 @@
               </ul>
             <% else %>
               <ul class='nav navbar-nav pull-right my-navbar'>
-                <li>
+                <li>Search
                   <%= form_tag '/questionSearch/:name', :method => 'get' do %>
                   <%= text_field_tag :search, params[:search], :id => 'search' %>
                   <% end %>

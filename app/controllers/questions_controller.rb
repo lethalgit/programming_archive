@@ -3,8 +3,13 @@ class QuestionsController < ApplicationController
   end
 
   def list
-    platform = params[:platform]
-    @questionList = Question.where(platform: platform);
+    platforms = params[:platforms]
+    if platforms == 'all'
+      @question_list = Question.all
+    else
+      platforms = platforms.split('+')
+      @question_list = Question.where(platform: platforms);
+    end
   end
 
   def show

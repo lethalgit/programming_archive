@@ -43,20 +43,101 @@
       <form>
         <div class="row">
           <select name="platform" id="platform">
-            <option value="all">
-              all
+            <option value="Select Platform">
+              Select Platform
             </option>
-            <option value="codechef">
-              codechef
+            <option value="all">
+              All
+            </option>
+            <option value="Codechef">
+              Codechef
             </option>
             <option value="Spoj">
-              spoj
+              Spoj
             </option>
-            <option value="codeforces">
-              codeforces
+            <option value="Codeforces">
+              Codeforces
             </option>
-            <option value="hackerearth">
-              hackerearth
+            <option value="Hackerearth">
+              Hackerearth
+            </option>
+          </select>
+          <select name="tag" id="tag">
+            <option value="Select Tag">
+              Select Tag
+            </option>
+            <option value="all">
+              All
+            </option>
+            <option value="Dynamic Programming">
+              Dynamic Programming
+            </option>
+            <option value="Graph Theory">
+              Graph Theory
+            </option>
+            <option value="Brute Force">
+              Brute Force
+            </option>
+            <option value="Bit Manupulation">
+              Bit Manupulation
+            </option>
+            <option value="String">
+              String
+            </option>
+            <option value="Greedy">
+              Greedy
+            </option>
+            <option value="Number Theory">
+              Number Theory
+            </option>
+          </select>
+          <select name="accuracy" id="accuracy">
+            <option value="Select Accuracy">
+              Select Accuracy
+            </option>
+            <option value="all">
+              All
+            </option>
+            <option value="one">
+              Lesser than 1%
+            </option>
+            <option value="10">
+              1% - 10%
+            </option>
+            <option value="30">
+              10% - 30%
+            </option>
+            <option value="60">
+              30% - 60%
+            </option>
+            <option value="90">
+              60% - 90%
+            </option>
+            <option value="90+">
+              Greater than 90%
+            </option>
+          </select>
+          <select name="submission" id="submission">
+            <option value="Select Submissions">
+              Select Submissions
+            </option>
+            <option value="100">
+              Lesser than 100
+            </option>
+            <option value="1000">
+              100 - 1000
+            </option>
+            <option value="3000">
+              1000 - 3000
+            </option>
+            <option value="7000">
+              3000 - 7000
+            </option>
+            <option value="10000">
+              7000 - 10000
+            </option>
+            <option value="10000+">
+              Greater than 10000
             </option>
           </select>
           <div class="col-lg-3 col-lg-offset-38">
@@ -242,8 +323,15 @@ $(document).ready(function(){
 });
 $('#submit').click(function (e) {
   e.preventDefault();
-  var platformSelected = document.getElementById('platform').value.trim().toLowerCase();
-  var url = '/questionList/' + platformSelected;
+  var platformSelected = document.getElementById('platform').value.trim().toLowerCase().replace(/[ ]/g, '_');
+  var tagSelected = document.getElementById('tag').value.trim().toLowerCase().replace(/[ ]/g, '_');
+  var accuracySelected = document.getElementById('accuracy').value.trim().toLowerCase().replace(/[ ]/g, '_');
+  var submissionsSelected = document.getElementById('submission').value.trim().toLowerCase().replace(/[ ]/g, '_');
+  console.log(platformSelected);
+  console.log(tagSelected);
+  console.log(accuracySelected);
+  console.log(submissionsSelected);
+  var url = '/questionList/' + platformSelected + '/' + tagSelected + '/' + accuracySelected + '/' + submissionsSelected;
   $.ajax({
     type: 'GET',
     url: url,
